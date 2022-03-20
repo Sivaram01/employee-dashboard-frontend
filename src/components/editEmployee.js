@@ -2,6 +2,7 @@ import { useState  , useEffect} from 'react';
 import { useParams , useHistory } from "react-router-dom";
 
 
+//fetch the all existing empolyee data and display it according to his/her ID...
 export default function EditUser (){
 
   const history = useHistory();
@@ -15,6 +16,7 @@ export default function EditUser (){
     });
     const {name , email , phoneNumber, dateOfBirth, jobTypes} =user
 
+    //fetch the existing employee data and display it on the form
    useEffect(()=> {
     fetch(`http://localhost:9000/api/edit/employee/${id}`,{method : "GET"})
     .then((data)=> data.json())

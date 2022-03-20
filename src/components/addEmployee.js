@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
+// Add New employees to the database
   const AddEmployee = () =>{
     const history = useHistory();
     const [user , setUser] = useState({
@@ -8,13 +9,15 @@ import { useHistory } from "react-router-dom";
       email : "",
       phoneNumber:"",
       dateOfBirth: "",
-      jobTypes: ['Full-Time', 'Part-Time', 'consultant']
+      jobTypes: ['Full-Time', 'Part-Time', 'consultant'],
+      formData: ""
     });
     // const {name , email , phoneNumber} =user
     const onInputChange = event => {
       // console.log(event.target.value);
       setUser({...user, [event.target.name]: event.target.value})
     }
+    //onSumbit save the user in db
     const onSubmit = (event) =>{
       event.preventDefault();
       console.log(JSON.stringify(user));
@@ -60,6 +63,18 @@ import { useHistory } from "react-router-dom";
               <option value="Part-Time">{user.jobTypes[1]}</option>
               <option value="consultant">{user.jobTypes[2]}</option>
             </select>
+      </div>
+      <span>Post photo</span>
+      <div className="form-group mb-2">
+        <label className="btn btn-success mb-2 w-100">
+          <input
+            onChange={event =>onInputChange(event)}
+            type="file"
+            name="photo"
+            accept="image"
+            placeholder="choose a file"
+          />
+        </label>
       </div>
 
       

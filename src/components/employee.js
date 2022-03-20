@@ -2,6 +2,7 @@ import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useState , useEffect } from "react";
 
+
  const User = () => {
    const history = useHistory();
    const {id} = useParams();
